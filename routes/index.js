@@ -8,12 +8,7 @@
 
 var router =global.newRouter();
 
-router.get('/abc', function (req, res, next) {
-  
-    res.json('hello,aaa!');
-});
-
-router.get('/index',function (req,res,next) {
+router.get('/',function (req,res,next) {
     // console.log(req.__('Hello'));
     // console.log(getLocale())
     // console.log(getLocales());

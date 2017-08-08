@@ -40,8 +40,8 @@ module.exports = {
     //静态目录配置
     staticConfig:[
         {
-            router:'/',
-            path:'public',
+            router:'/static',
+            path:'static',
             index:'index.html'
         }
     ],
