@@ -1,2 +1,2 @@
-# FoolDoc
-Fool-style program to generate  documents 。
+# usheryue.github.io
+This repository stores html formatted documents
