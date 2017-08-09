@@ -3,43 +3,47 @@
 <head>
     <meta charset="utf-8">
     <title>我的文档</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
-        *{
-            margin:0px ;
-            padding:0px;
-        }
-        html,body{
+        html, body {
             height: 100%;
             background: #F5F5F5;
         }
-        #page{
+
+        #page {
             background: #F5F5F5;
-            border:1px solid #F5F5F5;
-            width:100%;
-            height:100% !important;
-            min-height: 100% !important;
+            width: 100%;
+            min-height: 100%;
+            height: auto !important;
+            border: 1px solid red;
             /*margin 为负数自动计算宽度*/
-            margin-bottom:  -130px;
+            margin: 0px auto -165px;
         }
-        .top-navigation{
+
+        .top-navigation {
             box-shadow: 1px 2px 2px #eeeeee;
         }
-        #main{
-            margin-top:60px;
+
+        #main {
+            height: 100%;
+            margin-top: 60px;
         }
-        #main div.content-box{
+
+        #main div.content-box {
             background: #fafafa;
-            box-shadow: -1px -2px 2px #eeeeee,2px 6px 8px #eeeeee;
+            box-shadow: -1px -2px 2px #eeeeee, 2px 6px 8px #eeeeee;
+            margin-bottom: 100px;
         }
-        #footer{
-            height:65px;
-            margin-top:65px;
+
+        #footer {
+            height: 65px;
             background: #fff;
-            width:100%;
-            min-width:100% !important;
+            width: 100%;
+            min-width: 100% !important;
+            /*预留出底部*/
+            margin-top: 100px;
         }
     </style>
     <!--[if lt IE 9]>
@@ -48,10 +52,10 @@
 </head>
 <body>
 
-<div id="page" >
+<div id="page">
 
     <!--navigation begin-->
-    <div class="navbar navbar-fixed-top navbar-default top-navigation " role="navigation" >
+    <div class="navbar navbar-fixed-top navbar-default top-navigation " role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -60,12 +64,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class=" navbar-brand"   style="font-size:1em;" href="#">我的文档</a>
+                <a class=" navbar-brand" style="font-size:1em;" href="#">我的文档</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#" class="small"><span class="glyphicon glyphicon-home"></span>&nbsp;ExpressPlus</a></li>
-                    <li><a href="#shop" class="small"><span class="glyphicon glyphicon-cloud"></span>&nbsp;ActivedRouter</a></li>
+                    <li class="active"><a href="#" class="small"><span class="glyphicon glyphicon-home"></span>&nbsp;ExpressPlus</a>
+                    </li>
+                    <li><a href="#shop" class="small"><span class="glyphicon glyphicon-cloud"></span>&nbsp;ActivedRouter</a>
+                    </li>
                     <li><a href="#shop" class="small"><span class="glyphicon glyphicon-star"></span>&nbsp;我的笔记</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
@@ -73,36 +79,54 @@
     </div>
     <!--navigation end-->
 
-    <div id="main" class="container-fluid"  >
-          <div class="chapter hidden-xs col-sm-offset-1 col-sm-2" style="border:1px solid red;">
-              目录<br>
-              目录<br>
-              目录<br>
-              目录<br>
-              目录<br>
-              目录<br>
-              目录<br>
-          </div>
-            <div class="content-box col-sm-8">
-                ddd<br>
-                ddd<br>
-                ddd<br>
-                ddd<br>
-                ddd<br>
-            </div>
+    <div id="main" class="container-fluid">
+        <div class="chapter hidden-xs col-sm-offset-1 col-sm-2" style="border:1px solid red;">
+            目录<br>
+            目录<br>
+            目录<br>
+            目录<br>
+            目录<br>
+            目录<br>
+            目录<br>
+        </div>
+        <div class="content-box col-sm-8">
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+            ddd<br>
+
+
+        </div>
     </div>
     <!--footer end-->
 </div>
 
 <!--footer begin-->
-<footer  id="footer" class="container-fluid">
-    <div style="border: 1px solid red;width:900px;height: 60px;" class="center-block">
+<footer id="footer">
+    <div style="border: 1px solid red;width:300px;height: 60px;" class="center-block">
 
     </div>
 </footer>
-
-
-
 
 
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
