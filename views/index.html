@@ -5,7 +5,9 @@
     <title>我的文档</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/md/css/style.css"/>
+    <link rel="stylesheet" href="/static/md/css/editormd.css"/>
     <style>
         html, body {
             height: 100%;
@@ -17,7 +19,6 @@
             width: 100%;
             min-height: 100%;
             height: auto !important;
-            border: 1px solid red;
             /*margin 为负数自动计算宽度*/
             margin: 0px auto -165px;
         }
@@ -35,6 +36,7 @@
             background: #fafafa;
             box-shadow: -1px -2px 2px #eeeeee, 2px 6px 8px #eeeeee;
             margin-bottom: 100px;
+            height: 100%;
         }
 
         #footer {
@@ -45,9 +47,52 @@
             /*预留出底部*/
             margin-top: 100px;
         }
+
+        #main div.chapter {
+            font-size: 14px;
+            margin-bottom: 100px;
+            font-family: '微软雅黑';
+            /*background: #f1efee;*/
+            border-radius: 6px;
+        }
+
+        #main div.chapter ul.chapter-parent {
+            list-style: none;
+            margin-left: -25px;
+
+        }
+
+        #main div.chapter ul.chapter-parent li {
+            margin-top: 5px;
+        }
+
+        #main div.chapter ul.chapter-parent li:first-child {
+            margin-top: 15px;
+        }
+
+        #main div.chapter ul.chapter-parent li ul li:hover {
+            cursor: pointer;
+            background: #dddddd;
+        }
+
+        #main div.chapter ul.chapter-parent li h4 {
+            color: #f04c5c;
+        }
+
+        #main div.chapter ul.chapter-parent li ul {
+            padding-left: 15px;
+        }
+
+        #main div.chapter ul.chapter-parent li ul li {
+            list-style: none;
+            color: #3483A5;
+            min-width: 150px;
+        }
+
+
     </style>
     <!--[if lt IE 9]>
-    <script src="https://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="/static/scripts/html5shiv.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -79,42 +124,51 @@
     </div>
     <!--navigation end-->
 
-    <div id="main" class="container-fluid">
-        <div class="chapter hidden-xs col-sm-offset-1 col-sm-2" style="border:1px solid red;">
-            目录<br>
-            目录<br>
-            目录<br>
-            目录<br>
-            目录<br>
-            目录<br>
-            目录<br>
-        </div>
-        <div class="content-box col-sm-8">
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
-            ddd<br>
+    <div id="main" class="container">
+        <div class="chapter hidden-xs  col-sm-2">
+            <ul class="chapter-parent">
+                <li>
+                    <h4>快速入门</h4>
+                    <ul>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                        <li>介绍</li>
+                        <li>快速入门</li>
 
+                    </ul>
+                </li>
+                <li>
+                    <h4>实战</h4>
+                    <ul>
+                        <li>介绍</li>
+                        <li>快速入门</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="content-box col-sm-10" id="content">
+
+            <!--class="editormd-preview-theme-dark"-->
+            <div id="doc-content" >
+                <textarea style="display:none;">
+
+
+                </textarea>
+            </div>
 
         </div>
     </div>
@@ -127,9 +181,34 @@
 
     </div>
 </footer>
+<script src="/static/scripts/jquery-2.1.1.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/md/lib/marked.min.js"></script>
+<script src="/static/md/lib/prettify.min.js"></script>
+<script src="/static/md/lib/raphael.min.js"></script>
+<script src="/static/md/lib/underscore.min.js"></script>
+<script src="/static/md/lib/sequence-diagram.min.js"></script>
+<script src="/static/md/lib/flowchart.min.js"></script>
+<script src="/static/md/lib/jquery.flowchart.min.js"></script>
+<script src="/static/md/js/editormd.js"></script>
 
+<script>
+    $(document).ready(function () {
+        $.get('/static/md/mdfile/test.md', function (data) {
+            $('#doc-content textarea').val(data);
+            editormd.markdownToHTML("doc-content", {
+                htmlDecode: "style,script,iframe",  // you can filter tags decode
+                emoji: true,
+                taskList: true,
+                path : '/static/md/lib/',
 
-<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                tex: true,  // 默认不解析
+                flowChart: true,  // 默认不解析
+                sequenceDiagram: true,  // 默认不解析
+
+            });
+        });
+    })
+</script>
 </body>
 </html>
